@@ -89,5 +89,5 @@ def koans():
     suite.addTests(loader.loadTestsFromTestCase(TelevisionTest))
     suite.addTests(loader.loadTestsFromTestCase(AboutExtraCredit))
     suite.addTests(loader.loadTestsFromTestCase(AboutRegex))
-
+    suite.addTests(loader.loadTestsFromTestCase(AboutExtraCredit))
     return suite

@@ -35,8 +35,24 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    pass
+    count_numbers = {}.fromkeys(range(0, 10), 0)
 
+    for d in dice: count_numbers[d] += 1
+
+    # A set of three ones is 1000 points
+    total_score = (count_numbers[1] // 3) * 1000
+
+    # A set of three count_numbers (! ones) is worth 100 times the number
+    for no in range(2, 10):
+        total_score += (count_numbers[no] // 3) * 100 * no
+
+    # A one ( ! 3 x ones) is worth 100 points.
+    total_score += (count_numbers[1] % 3) * 100
+
+    # A five (that is not part of set of three) is worth 50 pints
+    total_score += (count_numbers[5] % 3) * 50
+
+    return total_score
 
 class AboutScoringProject(Koan):
     def test_score_of_an_empty_list_is_zero(self):

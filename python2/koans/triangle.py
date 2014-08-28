@@ -18,8 +18,19 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+
+    # Check if the triangle is valid.
+    if a < 1 or b < 1 or c < 1:
+        raise TriangleError, "Invalid triangle"
+
+    s1, s2, s3 = sorted([a, b, c])
+
+    # Check if the triangle is valid.
+    if s1 + s2 <= s3:
+        raise TriangleError, "Invalid triangle"
+
+    no_ueq_sides = len(set([a, b, c]))
+    return ["equilateral", "isosceles", "scalene"][no_ueq_sides - 1]
 
 
 # Error class used in part 2.  No need to change this code.
